@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración (Versión Clásica)</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header"><h2>Panel</h2><button class="close-menu" onclick="toggleMenu()">×</button></div>
+        <div class="menu-items">
+            <div class="menu-item" onclick="scrollToSection('dashboard')">Dashboard</div>
+            <div class="menu-item" onclick="scrollToSection('notifications')">Notificaciones</div>
+            <div class="menu-item" onclick="scrollToSection('registro')">Registro</div>
+            <div class="menu-item" onclick="toggleDarkMode()">Cambiar Tema</div>
+        </div>
+    </div>
+
+    <div class="header">
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+        <h1>Panel de Administración</h1>
+        <button class="menu-button">⋮</button>
+    </div>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-number">2,847</div><div class="stat-label">Usuarios Activos</div></div>
+            <div class="stat-card"><div class="stat-number">156</div><div class="stat-label">Proyectos</div></div>
+            <div class="stat-card"><div class="stat-number">98%</div><div class="stat-label">Satisfacción</div></div>
+            <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Soporte</div></div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" id="registro">
+                <div class="card-header"><h3>Registro de Usuario</h3></div>
+                <div class="card-content">
+                    <p>Completa tu perfil para acceder a todo.</p>
+                    <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" class="form-control"></div>
+                    <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" class="form-control"></div>
+                    <div class="form-group"><label for="password">Contraseña segura</label><input type="password" id="password" class="form-control"></div>
+                    <button class="btn btn-primary" onclick="registrarUsuario()">Registrarse</button>
+                    <button class="btn btn-outline" onclick="cancelarRegistro()">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="card" id="dashboard">
+                <div class="card-header"><h3>Dashboard Analítico</h3></div>
+                <div class="card-content">
+                    <p>Monitorea el rendimiento de tu aplicación en tiempo real con métricas avanzadas.</p>
+                    <h4>Métricas Clave:</h4>
+                    <ul>
+                        <li>Ventas: +15%</li>
+                        <li>Marketing: 75% de ROI</li>
+                        <li>Usuarios: 200 nuevos/mes</li>
+                        <li>Rendimiento: Estable</li>
+                    </ul>
+                    <br>
+                    <button class="btn btn-primary" onclick="alert('Abriendo reportes...')">Ver Reportes</button>
+                </div>
+            </div>
+
+            <div class="card" id="notifications">
+                <div class="card-header"><h3>Centro de Notificaciones</h3></div>
+                <div class="card-content">
+                     <p>Mantente al día con las últimas actualizaciones.</p>
+                     <div class="notification info"><strong>Nueva funcionalidad</strong><br><span>El botón flotante ahora es un menú de acciones.</span></div>
+                     <div class="notification info"><strong>Backup completado</strong><br><span>Todos tus datos fueron respaldados.</span></div>
+                     <button class="btn btn-primary" onclick="alert('Viendo todas las notificaciones...')">Ver Todas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="fab" onclick="alert('Acción rápida ejecutada.')">+</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

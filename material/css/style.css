@@ -1,0 +1,168 @@
+/* --- PALETA DE COLORES Y CONFIGURACIÓN GLOBAL --- */
+:root {
+    /* Colores para el Tema Claro (Light Mode) */
+    --md-sys-color-primary: #6750A4;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #EADDFF;
+    --md-sys-color-on-primary-container: #21005D;
+    --md-sys-color-secondary: #625B71;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #E8DEF8;
+    --md-sys-color-on-secondary-container: #1D192B;
+    --md-sys-color-tertiary: #7D5260;
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #FFD8E4;
+    --md-sys-color-on-tertiary-container: #31111D;
+    --md-sys-color-error: #B3261E;
+    --md-sys-color-on-error: #FFFFFF;
+    --md-sys-color-error-container: #F9DEDC;
+    --md-sys-color-on-error-container: #410E0B;
+    --md-sys-color-background: #FFFBFE;
+    --md-sys-color-on-background: #1C1B1F;
+    --md-sys-color-surface: #FFFBFE;
+    --md-sys-color-on-surface: #1C1B1F;
+    --md-sys-color-surface-variant: #E7E0EC;
+    --md-sys-color-on-surface-variant: #49454F;
+    --md-sys-color-outline: #79747E;
+    --md-sys-color-surface-container-low: #F7F2FA;
+    --md-sys-color-surface-container-highest: #E6E0E6;
+    --md-sys-color-shadow: #000000;
+}
+
+/* --- LÓGICA DEL MODO OSCURO (DARK MODE) --- */
+body.dark-mode {
+    --md-sys-color-primary: #D0BCFF;
+    --md-sys-color-on-primary: #381E72;
+    --md-sys-color-primary-container: #4F378B;
+    --md-sys-color-on-primary-container: #EADDFF;
+    --md-sys-color-secondary: #CCC2DC;
+    --md-sys-color-on-secondary: #332D41;
+    --md-sys-color-secondary-container: #4A4458;
+    --md-sys-color-on-secondary-container: #E8DEF8;
+    --md-sys-color-tertiary: #EFB8C8;
+    --md-sys-color-on-tertiary: #492532;
+    --md-sys-color-tertiary-container: #633B48;
+    --md-sys-color-on-tertiary-container: #FFD8E4;
+    --md-sys-color-error: #F2B8B5;
+    --md-sys-color-on-error: #601410;
+    --md-sys-color-error-container: #8C1D18;
+    --md-sys-color-on-error-container: #F9DEDC;
+    --md-sys-color-background: #1C1B1F;
+    --md-sys-color-on-background: #E6E1E5;
+    --md-sys-color-surface: #1C1B1F;
+    --md-sys-color-on-surface: #E6E1E5;
+    --md-sys-color-surface-variant: #49454F;
+    --md-sys-color-on-surface-variant: #CAC4D0;
+    --md-sys-color-outline: #938F99;
+    --md-sys-color-surface-container-low: #1C1B1F;
+    --md-sys-color-surface-container-highest: #36343B;
+    --md-sys-color-shadow: #000000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- ESTILOS DE COMPONENTES PRINCIPALES --- */
+.app-bar { background: var(--md-sys-color-surface-container-highest); padding: 8px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; }
+.menu-button { position: relative; background: transparent; border: none; color: var(--md-sys-color-on-surface-variant); cursor: pointer; padding: 12px; border-radius: 50%; display: flex; }
+.side-menu { position: fixed; top: 0; left: -320px; width: 320px; height: 100vh; background: var(--md-sys-color-surface-container-low); box-shadow: 8px 0 24px rgba(0,0,0,0.15); transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; overflow-y: auto; }
+.side-menu.open { left: 0; }
+.menu-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s ease; z-index: 1999; }
+.menu-overlay.active { opacity: 1; visibility: visible; }
+.menu-header { padding: 24px; display: flex; align-items: center; gap: 16px; }
+.menu-header h2 { font-size: 20px; font-weight: 500; color: var(--md-sys-color-on-surface); }
+.close-menu { margin-left: auto; }
+.menu-items { padding: 16px 0; }
+.menu-item { display: flex; align-items: center; gap: 16px; padding: 16px 24px; color: var(--md-sys-color-on-surface-variant); text-decoration: none; cursor: pointer; }
+.menu-item:hover { background: rgba(from var(--md-sys-color-primary) r g b / 0.08); }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.material-card { background: var(--md-sys-color-surface-container-low); border-radius: 12px; border: 1px solid var(--md-sys-color-outline); overflow: hidden; }
+.card-header { padding: 20px; }
+.card-header h3 { font-size: 18px; font-weight: 500; color: var(--md-sys-color-on-surface); }
+.card-content { padding: 0 24px 24px; }
+.card-content p { margin-bottom: 16px; line-height: 1.6; color: var(--md-sys-color-on-surface-variant); }
+md-outlined-text-field { display: block; width: 100%; margin-bottom: 16px; }
+
+/* --- AJUSTES DE ESTILO PARA BOTONES (CON MÁS PADDING) --- */
+md-filled-button,
+md-outlined-button {
+    --md-sys-typescale-label-large-size: 15px;
+    height: 48px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    margin-right: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* --- ESTILO PARA BOTÓN FLOTANTE (SPEED DIAL) (CORREGIDO) --- */
+.fab-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+.fab-menu {
+    position: absolute;
+    bottom: 100%; /* Posiciona el menú sobre el FAB */
+    right: 0;
+    margin-bottom: 16px; /* Espacio entre el FAB y el primer ítem del menú */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    /* Lógica para ocultar/mostrar */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+.fab-container.open .fab-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.fab-menu-item {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    cursor: pointer;
+    background: var(--md-sys-color-surface-container-low);
+    border-radius: 16px;
+    padding: 8px 16px 8px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 1px solid var(--md-sys-color-outline);
+    color: var(--md-sys-color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.fab-menu-item .material-symbols-outlined { margin-right: 8px; }
+#mainFabButton .material-symbols-outlined { transition: transform 0.3s ease; }
+.fab-container.open #mainFabButton .material-symbols-outlined { transform: rotate(45deg); }
+
+/* --- ESTILOS PARA SNACKBAR Y DIÁLOGO --- */
+.snackbar { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); background-color: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface); padding: 14px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 3000; transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.snackbar.show { bottom: 30px; }
+.dialog-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; z-index: 2500; }
+.dialog-overlay.active { opacity: 1; visibility: visible; }
+.dialog-box { background: var(--md-sys-color-surface-container-low); border-radius: 28px; padding: 24px; width: 90%; max-width: 400px; transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.dialog-overlay.active .dialog-box { transform: scale(1); }
+.dialog-box h4 { font-size: 22px; margin-bottom: 16px; color: var(--md-sys-color-on-surface); }
+.dialog-box p { font-size: 16px; margin-bottom: 24px; color: var(--md-sys-color-on-surface-variant); }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.empty-state { display: none; text-align: center; padding: 40px 20px; color: var(--md-sys-color-on-surface-variant); }
+.empty-state .material-symbols-outlined { font-size: 48px; margin-bottom: 16px; }
+.notification-item { background: var(--md-sys-color-surface-container-highest); padding: 16px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--md-sys-color-primary); }
+
+@media (max-width: 768px) {
+    .container { padding: 16px; }
+    .card-grid { grid-template-columns: 1fr; }
+}
